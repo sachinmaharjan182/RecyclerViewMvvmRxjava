@@ -1,10 +1,12 @@
 package com.skilledhands.recyclerviewmvvmrxjava.ui
 
+import android.databinding.DataBindingUtil
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.skilledhands.recyclerviewmvvmrxjava.R
+import com.skilledhands.recyclerviewmvvmrxjava.databinding.RowPostBinding
 import com.skilledhands.recyclerviewmvvmrxjava.models.Post
 import kotlinx.android.synthetic.main.row_post.view.*
 
@@ -17,12 +19,10 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): PostViewHolder {
-        return PostViewHolder(
-            LayoutInflater.from(p0.context).inflate(
-                R.layout.row_post,
-                null
-            )
-        )
+
+        val layoutInflater=LayoutInflater.from(p0.context)
+        val rowPostBinding:RowPostBinding=DataBindingUtil.inflate(layoutInflater,R.layout.row_post,p0,false)
+        return PostViewHolder(rowPostBinding)
     }
 
     override fun getItemCount(): Int {
@@ -31,14 +31,18 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
 
     override fun onBindViewHolder(p0: PostViewHolder, p1: Int) {
         var post=postList[p1]
-        p0.tvTitle.text=post.title
-        p0.tvBody.text=post.body
+        p0.bind(post)
 
     }
 
 
-    class PostViewHolder(itemview:View): RecyclerView.ViewHolder(itemview) {
-        var tvTitle=itemview.tv_title
-        var tvBody=itemview.tv_body
+    class PostViewHolder(val binding: RowPostBinding): RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(post:Post){
+            binding.post=post
+            // forces the bindings to run immediately
+            // instead of delaying them until the next frame
+            binding.executePendingBindings()
+        }
     }
 }
