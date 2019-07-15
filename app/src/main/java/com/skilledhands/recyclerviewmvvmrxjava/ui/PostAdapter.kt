@@ -1,9 +1,11 @@
-package com.skilledhands.recyclerviewmvvmrxjava
+package com.skilledhands.recyclerviewmvvmrxjava.ui
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.skilledhands.recyclerviewmvvmrxjava.R
+import com.skilledhands.recyclerviewmvvmrxjava.models.Post
 import kotlinx.android.synthetic.main.row_post.view.*
 
 class PostAdapter : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
@@ -15,7 +17,12 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): PostViewHolder {
-        return PostViewHolder(LayoutInflater.from(p0.context).inflate(R.layout.row_post,null))
+        return PostViewHolder(
+            LayoutInflater.from(p0.context).inflate(
+                R.layout.row_post,
+                null
+            )
+        )
     }
 
     override fun getItemCount(): Int {

@@ -3,7 +3,7 @@
     <data>
         <variable
             name="postviewmodel"
-            type="com.skilledhands.recyclerviewmvvmrxjava.PostViewModel" />
+            type="com.skilledhands.recyclerviewmvvmrxjava.viewmodels.PostViewModel" />
         <import type="android.view.View" />
     </data>
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,7 +11,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".PostActivity">
+        tools:context=".ui.PostActivity">
 
         <Button
             android:id="@+id/bt_fetch"

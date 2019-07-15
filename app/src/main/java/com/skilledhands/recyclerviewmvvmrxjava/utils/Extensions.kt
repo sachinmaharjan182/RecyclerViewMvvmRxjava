@@ -1,4 +1,4 @@
-package com.skilledhands.recyclerviewmvvmrxjava
+package com.skilledhands.recyclerviewmvvmrxjava.utils
 
 import android.content.Context
 import android.widget.Toast

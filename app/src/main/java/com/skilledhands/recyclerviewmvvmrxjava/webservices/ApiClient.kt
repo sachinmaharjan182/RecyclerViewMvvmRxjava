@@ -1,6 +1,7 @@
-package com.skilledhands.recyclerviewmvvmrxjava
+package com.skilledhands.recyclerviewmvvmrxjava.webservices
 
 import com.google.gson.GsonBuilder
+import com.skilledhands.recyclerviewmvvmrxjava.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

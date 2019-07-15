@@ -1,8 +1,11 @@
-package com.skilledhands.recyclerviewmvvmrxjava
+package com.skilledhands.recyclerviewmvvmrxjava.viewmodels
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableBoolean
+import com.skilledhands.recyclerviewmvvmrxjava.models.Post
+import com.skilledhands.recyclerviewmvvmrxjava.webservices.ApiClient
+import com.skilledhands.recyclerviewmvvmrxjava.webservices.ApiInterface
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -27,7 +30,8 @@ class PostViewModel : ViewModel() {
     fun getPostList(){
         isBusy.set(true)
         isError.value=false
-        val apiInterface=ApiClient.apiClient!!.create(ApiInterface::class.java)
+        val apiInterface=
+            ApiClient.apiClient!!.create(ApiInterface::class.java)
         apiInterface.getPostList()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

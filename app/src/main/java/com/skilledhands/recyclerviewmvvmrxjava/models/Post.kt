@@ -1,4 +1,4 @@
-package com.skilledhands.recyclerviewmvvmrxjava
+package com.skilledhands.recyclerviewmvvmrxjava.models
 
 class Post(val userId:Int,
            val id:Int,

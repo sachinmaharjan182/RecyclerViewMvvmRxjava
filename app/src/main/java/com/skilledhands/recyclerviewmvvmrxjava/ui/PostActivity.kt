@@ -1,4 +1,4 @@
-package com.skilledhands.recyclerviewmvvmrxjava
+package com.skilledhands.recyclerviewmvvmrxjava.ui
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -6,9 +6,11 @@ import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.widget.LinearLayout
+import com.skilledhands.recyclerviewmvvmrxjava.viewmodels.PostViewModel
+import com.skilledhands.recyclerviewmvvmrxjava.R
 import com.skilledhands.recyclerviewmvvmrxjava.databinding.ActivityPostBinding
+import com.skilledhands.recyclerviewmvvmrxjava.utils.showToast
 import kotlinx.android.synthetic.main.activity_post.*
 
 class PostActivity : AppCompatActivity() {
@@ -20,7 +22,9 @@ class PostActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val postBinding: ActivityPostBinding= DataBindingUtil.setContentView(this,R.layout.activity_post)
+        val postBinding: ActivityPostBinding= DataBindingUtil.setContentView(this,
+            R.layout.activity_post
+        )
 
         val postViewModel=ViewModelProviders.of(this).get(PostViewModel::class.java)
 
@@ -56,4 +60,5 @@ class PostActivity : AppCompatActivity() {
         rv_post.layoutManager=LinearLayoutManager(this, LinearLayout.VERTICAL,false)
         rv_post.adapter=adapter
     }
+
 }
