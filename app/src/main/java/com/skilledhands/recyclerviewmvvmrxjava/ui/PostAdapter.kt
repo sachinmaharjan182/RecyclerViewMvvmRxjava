@@ -1,6 +1,7 @@
 package com.skilledhands.recyclerviewmvvmrxjava.ui
 
 import android.databinding.DataBindingUtil
+import android.databinding.ViewDataBinding
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -37,7 +38,6 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
 
 
     class PostViewHolder(val binding: RowPostBinding): RecyclerView.ViewHolder(binding.root) {
-
         fun bind(post:Post){
             binding.post=post
             // forces the bindings to run immediately
