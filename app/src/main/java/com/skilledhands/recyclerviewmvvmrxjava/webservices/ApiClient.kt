@@ -23,7 +23,7 @@ object ApiClient {
                 //see logs for debugging
                 if (BuildConfig.DEBUG) {
                     val logging = HttpLoggingInterceptor()
-                    logging.level = HttpLoggingInterceptor.Level.BODY
+                    logging.level = HttpLoggingInterceptor.Level.NONE
                     httpClient.addInterceptor(logging)
                 }
                 httpClient.callTimeout(40, TimeUnit.SECONDS)

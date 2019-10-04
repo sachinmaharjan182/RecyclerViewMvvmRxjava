@@ -13,6 +13,6 @@ interface ApiInterface {
 
 
     @GET("posts")
-    fun getPosts():Single<Resource<ArrayList<Post>>>
+    fun getPosts():Single<ArrayList<Post>>
 
 }

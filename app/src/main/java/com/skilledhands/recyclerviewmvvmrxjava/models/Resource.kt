@@ -1,6 +1,6 @@
 package com.skilledhands.recyclerviewmvvmrxjava.models
 
-data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
+data class Resource<T>(var status: Status, var data: T?, var message: String?) {
     companion object {
         fun <T> success(data: T?): Resource<T> {
             return Resource(Status.SUCCESS, data, null)
